@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ruang Baca & Laboraturim Literasi Psikologi - UIN Sunan Kalijaga</title>
+<title>Ruang Baca & Lab Literasi – Psikologi UIN Sunan Kalijaga</title>
+<link rel="icon" type="image/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Lora:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -28,7 +29,9 @@ a{color:var(--aksen)}
 
 header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--garis)}
 header .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.4rem 1.5rem;padding-top:.7rem;padding-bottom:.7rem}
-.logo{font:400 1.25rem var(--judul);color:var(--emas);text-decoration:none}
+.logo{font:400 1.25rem var(--judul);color:var(--emas);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo img{width:34px;height:34px}
+.lencana{width:min(190px,48vw);height:auto;display:block;margin:0 auto 1.6rem;filter:drop-shadow(0 0 28px #c9acf355)}
 nav{display:flex;gap:1.2rem;flex-wrap:wrap}
 nav a{font:italic 400 1.1rem var(--judul);color:var(--redup);text-decoration:none}
 nav a:hover{color:var(--emas)}
@@ -51,47 +54,74 @@ nav a:hover{color:var(--emas)}
 .catatan b{font:400 1.5rem var(--judul);color:var(--emas);display:block}
 .catatan i{color:var(--redup);font-size:.92rem}
 
-section{padding:4rem 0;border-top:1px solid var(--garis)}
-h2{font:400 2.3rem/1.1 var(--judul);color:var(--emas);margin-bottom:.4rem}
-.kecil{color:var(--redup);font-style:italic;margin-bottom:1.8rem}
-section p+p{margin-top:1rem}
+section{padding:3.5rem 0}
+section::before{content:"✦ ✦ ✦";display:block;text-align:center;color:var(--emas);opacity:.55;letter-spacing:.9em;margin-bottom:2.5rem;font-size:.8rem}
+h2{font:400 2.4rem/1.1 var(--judul);color:var(--emas);text-align:center}
+.kecil{color:var(--redup);font-style:italic;margin:.3rem 0 2.2rem;text-align:center}
 
-/* kegiatan sebagai bab */
-.bab{list-style:none;padding:0;counter-reset:b}
-.bab li{counter-increment:b;display:grid;grid-template-columns:4.2rem 1fr;gap:.6rem;padding:1.2rem 0;border-bottom:1px solid var(--garis)}
-.bab li::before{content:"Bab " counter(b,upper-roman);font:italic 400 1.05rem var(--judul);color:var(--aksen);padding-top:.25rem}
-.bab h3{font:400 1.55rem/1.2 var(--judul)}
-.bab p{color:var(--redup);font-size:.97rem;line-height:1.65}
+/* tentang: buku terbuka */
+.buka{display:grid;grid-template-columns:1fr 1fr;padding:2.4rem 0 3rem;border-radius:8px;position:relative;
+  background:linear-gradient(90deg,#2c2243,#352a4f 48%,#1a1428 50%,#352a4f 52%,#2c2243);
+  box-shadow:0 24px 40px -16px #000c,inset 0 0 0 1px #4d406c,0 6px 0 -1px #3a2d57,0 8px 0 -1px #2a2040}
+.hal{padding:0 2.4rem;position:relative;font-size:1.02rem}
+.hal p+p{margin-top:1rem}
+.hal:first-child p:first-child::first-letter{font:400 4rem/.8 var(--judul);float:left;padding:.3rem .55rem 0 0;color:var(--emas)}
+.hal::after{content:attr(data-no);position:absolute;bottom:-1.9rem;left:0;right:0;text-align:center;font:italic 400 .95rem var(--judul);color:var(--redup)}
+.hal .ttd{font:italic 400 1.3rem var(--judul);color:var(--aksen);text-align:right;margin-top:1.4rem}
 
-/* divisi */
-.divisi{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.2rem 2.5rem;list-style:none;padding:0}
-.divisi li{position:relative;padding-top:1.7rem;background:linear-gradient(var(--aksen),var(--aksen)) 1.7rem .55rem/calc(100% - 1.7rem) 1px no-repeat}
-.divisi li::before{content:"✦";position:absolute;top:0;left:0;line-height:1.1;color:var(--emas);font-size:.95rem}
-.divisi h3{font:400 1.5rem/1.2 var(--judul);color:var(--teks)}
-.divisi p{color:var(--redup);font-size:.95rem;line-height:1.65;margin:.4rem 0 .7rem}
-.divisi .pj{font:italic 400 1rem var(--judul);color:var(--aksen)}
-.divisi .pj span{color:var(--redup)}
-.inti{margin-bottom:2.4rem;text-align:center;padding:1.4rem 1rem;border-top:1px solid var(--garis);border-bottom:1px solid var(--garis)}
-.inti h3{font:400 1.6rem var(--judul);color:var(--emas)}
-.inti p{color:var(--redup);font-size:.97rem}
+/* kegiatan: daftar isi */
+.daftar{list-style:none;padding:0;max-width:640px;margin:0 auto;counter-reset:h}
+.daftar li{display:grid;grid-template-columns:auto 1fr auto;column-gap:.7rem;align-items:baseline;padding:.9rem 0;counter-increment:h}
+.daftar h3{font:400 1.6rem/1.2 var(--judul)}
+.daftar i{border-bottom:1px dotted var(--redup);transform:translateY(-.35rem)}
+.daftar li::after{content:counter(h,decimal-leading-zero);grid-column:3;grid-row:1;font:italic 400 1.2rem var(--judul);color:var(--aksen)}
+.daftar p{grid-column:1/-1;color:var(--redup);font-size:.95rem;line-height:1.6;margin-top:.15rem}
 
-/* agenda */
-.agenda{list-style:none;padding:0}
-.agenda li{display:flex;gap:1.4rem;padding:.9rem 0;border-bottom:1px dotted var(--garis);align-items:baseline}
-.agenda time{font:italic 400 1.1rem var(--judul);color:var(--aksen);min-width:6.5rem}
-.agenda span{color:var(--redup);font-size:.92rem;display:block}
+/* divisi: kartu tarot */
+.inti{text-align:center;margin-bottom:2.4rem}
+.inti h3{font:italic 400 1.5rem var(--judul);color:var(--aksen)}
+.inti p{color:var(--redup);font-size:.96rem}
+.tarot{display:flex;flex-wrap:wrap;gap:2rem 1.8rem;justify-content:center;list-style:none;padding:.5rem 0}
+.tarot li{width:236px;min-height:370px;text-align:center;padding:2.4rem 1.4rem 1.6rem;border:1px solid #ecd6a6aa;
+  border-radius:130px 130px 14px 14px;background:linear-gradient(180deg,#33275500,#2d2247 30%,#211a35);
+  box-shadow:0 0 0 5px var(--bg),0 0 0 6px #ecd6a644,0 22px 30px -16px #000;transition:transform .3s}
+.tarot li:nth-child(1){transform:rotate(-2.5deg)}.tarot li:nth-child(3){transform:rotate(2.5deg)}
+.tarot li:hover{transform:translateY(-10px) rotate(0)}
+.tarot .no{font:italic 400 1.05rem var(--judul);color:var(--aksen);display:block}
+.tarot .lambang{font-size:2.3rem;line-height:1.4;color:var(--emas)}
+.tarot h3{font:400 1.55rem/1.2 var(--judul);margin-bottom:.5rem}
+.tarot p{color:var(--redup);font-size:.93rem;line-height:1.6}
+.tarot .pj{margin-top:1rem;font:italic 400 1rem var(--judul);color:var(--aksen)}
+.tarot .pj span{color:var(--redup)}
 
-footer{border-top:1px solid var(--garis);padding:3rem 0 4rem;text-align:center;color:var(--redup)}
+/* agenda: garis zig-zag */
+.zigzag{list-style:none;padding:0;position:relative;max-width:720px;margin:0 auto}
+.zigzag::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--aksen),#c9acf300)}
+.zigzag li{width:50%;padding:.2rem 2.2rem 2rem 0;text-align:right;position:relative}
+.zigzag li:nth-child(even){margin-left:50%;padding:.2rem 0 2rem 2.2rem;text-align:left}
+.zigzag li::after{content:"";position:absolute;top:.6rem;right:-8px;width:15px;height:15px;border-radius:50%;background:var(--emas);box-shadow:0 0 0 4px var(--bg),0 0 16px #ecd6a6aa}
+.zigzag li:nth-child(even)::after{right:auto;left:-8px}
+.zigzag time{font:italic 400 1.2rem var(--judul);color:var(--aksen)}
+.zigzag h3{font:400 1.45rem/1.25 var(--judul)}
+.zigzag span{color:var(--redup);font-size:.92rem}
+
+footer{padding:3rem 0 4rem;text-align:center;color:var(--redup)}
 footer h2{font-size:1.8rem}
 footer .tautan{margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
-@media (max-width:560px){.bab li{grid-template-columns:1fr;gap:0}.agenda li{flex-direction:column;gap:.1rem}}
+@media (max-width:760px){
+  .buka{grid-template-columns:1fr;background:#2f2548;gap:3.2rem;padding-bottom:3.4rem}.hal{padding:0 1.5rem}
+  .zigzag::before{left:6px}
+  .zigzag li,.zigzag li:nth-child(even){width:100%;margin-left:0;padding:.2rem 0 1.8rem 2rem;text-align:left}
+  .zigzag li::after,.zigzag li:nth-child(even)::after{left:0;right:auto}
+  .tarot li:nth-child(1),.tarot li:nth-child(3){transform:none}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.buku button{transition:none}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="#atas">Ruang Baca &amp; Lab Literasi</a>
+    <a class="logo" href="#atas"><img src="logo.png" alt="" width="34" height="34">Ruang Baca &amp; Lab Literasi</a>
     <nav aria-label="Navigasi">
       <a href="#tentang">Tentang</a><a href="#kegiatan">Kegiatan</a><a href="#divisi">Divisi</a><a href="#agenda">Agenda</a><a href="#kontak">Kontak</a>
     </nav>
@@ -100,6 +130,7 @@ footer .tautan{margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;fl
 
 <main class="wrap" id="atas">
   <div class="hero">
+    <img class="lencana" src="logo.png" alt="Logo Ruang Baca Psikologi UIN Sunan Kalijaga" width="190" height="190">
     <small>Psikologi · UIN Sunan Kalijaga Yogyakarta</small>
     <h1>Ruang Baca<br>&amp; <em>Lab Literasi</em></h1>
     <p>Tempat membaca, berdiskusi, dan menulis. Setiap buku adalah pintu menuju pikiran yang lain.</p>
@@ -113,42 +144,50 @@ footer .tautan{margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;fl
   <section id="tentang">
     <h2>Tentang kami</h2>
     <p class="kecil">Sebuah ruang kecil dengan rak yang selalu terisi.</p>
-    <p>Ruang Baca dan Lab Literasi adalah organisasi di Program Studi Psikologi UIN Sunan Kalijaga yang menjadi tempat mahasiswa membaca. Tuliskan di sini sejarah singkat, visi, dan hal yang membuat organisasi ini istimewa.</p>
-    <p>Kami percaya bahwa memahami manusia dimulai dari kebiasaan sederhana: mau membaca, mau mendengar, dan mau menuliskannya kembali.</p>
+    <div class="buka">
+      <div class="hal" data-no="— 1 —">
+        <p>Ruang Baca dan Lab Literasi adalah organisasi di Program Studi Psikologi UIN Sunan Kalijaga yang menjadi tempat mahasiswa membaca, berdiskusi, dan berlatih menulis.</p>
+        <p>Tuliskan di sini sejarah singkat, visi, dan hal yang membuat organisasi ini istimewa.</p>
+      </div>
+      <div class="hal" data-no="— 2 —">
+        <p>Kami percaya bahwa memahami manusia dimulai dari kebiasaan sederhana: mau membaca, mau mendengar, dan mau menuliskannya kembali.</p>
+        <p class="ttd">— Ruang Baca &amp; Lab Literasi</p>
+      </div>
+    </div>
   </section>
 
   <section id="kegiatan">
-    <h2>Kegiatan</h2>
-    <p class="kecil">Beberapa bab dari perjalanan kami.</p>
-    <ul class="bab">
-      <li><div><h3>Bedah buku</h3><p>Membahas satu buku bersama-sama, dari sudut pandang psikologi dan kehidupan sehari-hari.</p></div></li>
-      <li><div><h3>Diskusi rutin</h3><p>Pertemuan santai untuk bertukar gagasan seputar bacaan dan isu psikologi.</p></div></li>
-      <li><div><h3>Pelatihan menulis</h3><p>Belajar menulis esai, resensi, dan karya ilmiah populer di Lab Literasi.</p></div></li>
-      <li><div><h3>Peminjaman buku</h3><p>Koleksi Ruang Baca terbuka untuk mahasiswa. Ganti dengan aturan peminjamannya.</p></div></li>
+    <h2>Daftar Isi</h2>
+    <p class="kecil">Kegiatan yang mengisi halaman-halaman kami.</p>
+    <ul class="daftar">
+      <li><h3>Bedah buku</h3><i></i><p>Membahas satu buku bersama-sama, dari sudut pandang psikologi dan kehidupan sehari-hari.</p></li>
+      <li><h3>Diskusi rutin</h3><i></i><p>Pertemuan santai untuk bertukar gagasan seputar bacaan dan isu psikologi.</p></li>
+      <li><h3>Pelatihan menulis</h3><i></i><p>Belajar menulis esai, resensi, dan karya ilmiah populer di Lab Literasi.</p></li>
+      <li><h3>Peminjaman buku</h3><i></i><p>Koleksi Ruang Baca terbuka untuk mahasiswa. Ganti dengan aturan peminjamannya.</p></li>
     </ul>
   </section>
 
   <section id="divisi">
     <h2>Divisi</h2>
-    <p class="kecil">Orang-orang di balik rak dan meja diskusi.</p>
+    <p class="kecil">Tiga kartu, tiga penjaga ruang baca.</p>
     <div class="inti">
       <h3>Badan Pengurus Harian</h3>
-      <p>Ketua: Muhammad Fadhil Abidat Taqy · Sekretaris: [Nama] · Bendahara: [Nama]</p>
+      <p>Ketua: Muhammad Fahdil Abidat Taqy · Sekretaris: [Nama] · Bendahara: [Nama]</p>
     </div>
-    <ul class="divisi">
-      <li><h3>Buku</h3><p>Merawat koleksi, mencatat peminjaman, dan menjaga ruang baca tetap nyaman.</p><div class="pj"><span>Koordinator:</span> [Nama]</div></li>
-      <li><h3>Diskusi</h3><p>Menyusun bedah buku dan diskusi rutin, mulai dari memilih tema sampai mencari pembicara.</p><div class="pj"><span>Koordinator:</span> Fuad Yadzkur Ghifari</div></li>
-      <li><h3>Media</h3><p>Menyebarkan informasi, mendokumentasi kegiatan, dan mengelola media sosial.</p><div class="pj"><span>Koordinator:</span> Ardra Maheswari</div></li>
+    <ul class="tarot">
+      <li><span class="no">I</span><div class="lambang" aria-hidden="true">☾</div><h3>Divisi Buku</h3><p>Merawat koleksi, mencatat peminjaman, dan menjaga ruang baca tetap nyaman.</p><div class="pj"><span>Koordinator:</span> M. Hafizh Hidayatullah </div></li>
+      <li><span class="no">II</span><div class="lambang" aria-hidden="true">✶</div><h3>Divisi Diskusi</h3><p>Menyusun bedah buku dan diskusi rutin, mulai dari memilih tema sampai mencari pembicara.</p><div class="pj"><span>Koordinator:</span> Fuad Yadzkur Ghifari</div></li>
+      <li><span class="no">III</span><div class="lambang" aria-hidden="true">✧</div><h3>Divisi Media</h3><p>Membuat desain, dokumentasi, dan konten untuk media sosial dan situs ini.</p><div class="pj"><span>Koordinator:</span> Ardra Maheswari</div></li>
     </ul>
   </section>
 
   <section id="agenda">
     <h2>Agenda</h2>
     <p class="kecil">Catat tanggalnya sebelum buku kami habis dipinjam.</p>
-    <ul class="agenda">
-      <li><time datetime="2026-11-15">15 Nov 2026</time><div>Bedah buku bulanan<span>Tempat dan pembicara menyusul</span></div></li>
-      <li><time datetime="2026-11-28">28 Nov 2026</time><div>Workshop menulis resensi<span>Pendaftaran dibuka lewat Instagram</span></div></li>
-      <li><time datetime="2026-12-10">10 Des 2026</time><div>Diskusi akhir tahun<span>Terbuka untuk umum</span></div></li>
+    <ul class="zigzag">
+      <li><time datetime="2026-11-15">15 November 2026</time><h3>Bedah buku bulanan</h3><span>Tempat dan pembicara menyusul</span></li>
+      <li><time datetime="2026-11-28">28 November 2026</time><h3>Workshop menulis resensi</h3><span>Pendaftaran dibuka lewat Instagram</span></li>
+      <li><time datetime="2026-12-10">10 Desember 2026</time><h3>Diskusi akhir tahun</h3><span>Terbuka untuk umum</span></li>
     </ul>
   </section>
 </main>
@@ -156,7 +195,7 @@ footer .tautan{margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;fl
 <footer id="kontak">
   <div class="wrap">
     <h2>Mampir ke Ruang Baca</h2>
-    <p>[Tulis alamat atau lokasi ruangan di sini]<br>Buka: [hari dan jam]</p>
+    <p>Lantai 3 FISHUM UIN Sunan Kalijaga<br>Buka: Senin-Jumat (09.00-15.00)</p>
     <div class="tautan"><a href="#">Instagram</a><a href="mailto:email@contoh.com">Email</a><a href="#">WhatsApp</a></div>
     <p style="margin-top:2rem;font-size:.85rem">© 2026 Ruang Baca &amp; Lab Literasi · Psikologi UIN Sunan Kalijaga</p>
   </div>
